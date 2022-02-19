@@ -22,7 +22,7 @@ function newsService() {
     return axios({
       method: 'GET',
       baseURL: BASE_BACKEND_URL,
-      url: `news/search?title=${title}`
+      url: `news?title=${title}`
     });
   }
 
