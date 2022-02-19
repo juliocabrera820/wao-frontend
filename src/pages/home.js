@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import SearchBar from '../components/searchBar';
 import { newsService } from '../services/newsService';
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
   }
   return(
     <h2>
+      <SearchBar/>
       Home
     </h2>
   );
