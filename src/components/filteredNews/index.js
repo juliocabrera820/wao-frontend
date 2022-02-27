@@ -2,7 +2,7 @@ import New from "../new";
 
 const FilteredNews = ({ news }) => {
   return (
-    <div className="container">
+    <div className="mt-5">
       {news.map(({ title, category, published, url, description }) => {
         return (
           <New

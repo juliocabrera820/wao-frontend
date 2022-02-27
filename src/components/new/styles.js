@@ -4,7 +4,7 @@ import { baseButton } from "../../shared/styles";
 
 const Card = styled.div`
   box-shadow: 3px 3px 2px #888888;
-  max-width: 740px;
+  max-width: 100%;
 
   img {
     height: 100%;

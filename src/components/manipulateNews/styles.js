@@ -4,6 +4,7 @@ import { Button } from "../../shared/styles";
 
 const FilterNews = styled.select`
   background-color: ${colors.secondary};
+  width: 9rem;
 `;
 
 const alternativeColor = '#dcceec';
