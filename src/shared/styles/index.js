@@ -8,6 +8,12 @@ const baseButton = css`
     background-color: ${(props) => hoverColors[props.buttonType]};
     border-color: ${(props) => hoverColors[props.buttonType]};
   }
+  &:focus {
+    border: 2px solid ${(props) => colors[props.buttonType]};
+    background-color: ${(props) => colors[props.buttonType]};
+    outline: none;
+    box-shadow: 0 0 0 3px ${(props) => colors[props.buttonType]};
+  }
 `;
 
 const Button = styled.button`

@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from "react";
-import FilteredNews from '../filteredNews';
+import { useState, useEffect } from "react";
+import FilteredNews from "../filteredNews";
 import { FilterNews, UpdateButton } from "./styles";
 import { Fields } from "../../shared/consts/fields";
 import { feedsService } from "../../services/feedsService";
@@ -26,11 +26,15 @@ const ManipulateNews = () => {
   };
 
   return (
-    <div className="row">
-      <div className="flex justify-content-between">
-        <FilterNews className="form-select" onChange={handleOption}>
+    <>
+      <div className="d-flex justify-content-between mt-5">
+        <FilterNews className="form-select text-white" onChange={handleOption}>
           {Fields.map(({ option, field }) => {
-            return <option value={field} key={field}>{option}</option>;
+            return (
+              <option value={field} key={field}>
+                {option}
+              </option>
+            );
           })}
         </FilterNews>
         <UpdateButton
@@ -41,8 +45,8 @@ const ManipulateNews = () => {
           Update
         </UpdateButton>
       </div>
-      <FilteredNews news={news}/>
-    </div>
+      <FilteredNews news={news} />
+    </>
   );
 };
 
