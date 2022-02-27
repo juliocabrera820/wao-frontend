@@ -26,7 +26,7 @@ function feedsService() {
     return axios({
       method: 'GET',
       baseURL: BASE_BACKEND_URL,
-      url: 'refresh'
+      url: 'feeds/refresh'
     });
   }
 

@@ -1,0 +1,34 @@
+import styled from "styled-components";
+import { generateColor } from "../../utils/color";
+import { baseButton } from "../../shared/styles";
+
+const Card = styled.div`
+  box-shadow: 3px 3px 2px #888888;
+  max-width: 740px;
+
+  img {
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+  }
+`;
+
+const Category = styled.p`
+  color: ${generateColor};
+`;
+
+const Title = styled.h4`
+  color: #000000;
+  font-weight: 600;
+`;
+
+const Description = styled.p`
+  color: #92a9bd;
+  font-size: 14px;
+`;
+
+const ReadMore = styled.a`
+  ${baseButton}
+`;
+
+export { Card, Category, Title, Description, ReadMore };
