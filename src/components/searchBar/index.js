@@ -1,7 +1,9 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { searchSchema } from "../schemas/searchSchema";
-import { newsService } from "../services/newsService";
+import { searchSchema } from "../../schemas/searchSchema";
+import { newsService } from "../../services/newsService";
+import { Field } from "./styles";
+import { Button } from '../../shared/styles';
 
 const SearchBar = () => {
   const { register, handleSubmit, errors } = useForm({
@@ -15,28 +17,27 @@ const SearchBar = () => {
 
   const searchNew = async (title) => {
     const { data: result } = await newsService().search(title);
-    console.log(result);
   };
 
   return (
-    <div className="row mb-3">
-      <div className="col-6">
+    <div className="container">
+      <div className="row mt-5">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="form-group">
-            <input
+          <div className="col-md-6">
+            <Field
               type="text"
-              placeholder="Search"
+              placeholder="Search news"
               ref={register}
               name="title"
-              className={`form-control ${
-                errors.title ? "is-invalid" : "is-valid"
-              }`}
+              className={`form-control ${errors.title ? "is-invalid" : ""}`}
             />
             <div className="invalid-feedback">
               <p>{errors.title && errors.title.message}</p>
             </div>
-            <button className="btn btn-success">Search</button>
           </div>
+            <Button buttonType="primary" className="btn btn-success">
+              Search
+            </Button>
         </form>
       </div>
     </div>
