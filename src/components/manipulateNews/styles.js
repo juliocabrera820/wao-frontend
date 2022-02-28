@@ -17,6 +17,7 @@ const UpdateButton = styled(Button)`
     background-color: ${colors.secondary};
     border-color: ${colors.secondary};
   }
+  width: 8rem;
 `;
 
 export { FilterNews, UpdateButton };
