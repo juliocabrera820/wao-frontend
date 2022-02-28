@@ -1,5 +1,13 @@
 import Thumbnail from "../../assets/thumbnail.png";
-import { Card, Category, Title, Description, ReadMore } from "./styles";
+import {
+  Card,
+  Category,
+  Title,
+  Description,
+  ReadMore,
+  Footer,
+  Date,
+} from "./styles";
 
 const New = ({ title, category, published, url, description }) => {
   return (
@@ -13,17 +21,19 @@ const New = ({ title, category, published, url, description }) => {
             <Category className="card-text">{category}</Category>
             <Title className="card-title">{title}</Title>
             <Description className="card-text">{description}</Description>
-            <p className="card-text">
-              <small className="text-muted">{published}</small>
-            </p>
-            <ReadMore
-              buttonType="terciary"
-              className="btn btn-success"
-              href={url}
-              target="_blank"
-            >
-              Read More
-            </ReadMore>
+            <Footer>
+              <p className="card-text">
+                <Date>{published}</Date>
+              </p>
+              <ReadMore
+                buttonType="terciary"
+                className="btn btn-success"
+                href={url}
+                target="_blank"
+              >
+                Read More
+              </ReadMore>
+            </Footer>
           </div>
         </div>
       </div>

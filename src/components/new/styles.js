@@ -30,4 +30,15 @@ const ReadMore = styled.a`
   ${baseButton}
 `;
 
-export { Card, Category, Title, Description, ReadMore };
+const Footer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6rem;
+`;
+
+const Date = styled.small`
+  font-weight: bold;
+  font-size: 12px;
+`;
+
+export { Card, Category, Title, Description, ReadMore, Footer, Date };
