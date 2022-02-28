@@ -20,4 +20,9 @@ const Button = styled.button`
   ${baseButton}
 `;
 
-export { Button, baseButton };
+const Icon = styled.img`
+  position: absolute;
+  padding: 10px;
+`;
+
+export { Button, baseButton, Icon };
