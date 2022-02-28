@@ -1,27 +1,28 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useNavigate } from "react-router-dom";
 import { searchSchema } from "../../schemas/searchSchema";
-import { newsService } from "../../services/newsService";
-import { Field } from "./styles";
-import { Button } from "../../shared/styles";
+import { Field} from "./styles";
+import { Button, Icon } from "../../shared/styles";
+import Search from '../../assets/search.png';
 
 const SearchBar = () => {
+  const navigate = useNavigate();
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(searchSchema),
   });
 
-  const onSubmit = (data, e) => {
-    searchNew(data.title);
-    e.target.reset();
-  };
-
-  const searchNew = async (title) => {
-    const { data: result } = await newsService().search(title);
+  const onSubmit = ({ title }, e) => {
+    navigate(`/search?title=${title}`);
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="d-flex justify-content-between">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="d-flex justify-content-between"
+    >
       <div className="col-md-10">
+        <Icon src={Search} alt={Search} />
         <Field
           type="text"
           placeholder="Search news"

@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import FilteredNews from "../filteredNews";
 import { FilterNews, UpdateButton } from "./styles";
+import { Icon } from "../../shared/styles";
 import { Fields } from "../../shared/consts/fields";
 import { feedsService } from "../../services/feedsService";
 import { newsService } from "../../services/newsService";
+import Update from "../../assets/update.png";
 
 const ManipulateNews = () => {
   const [news, setNews] = useState([]);
@@ -37,13 +39,16 @@ const ManipulateNews = () => {
             );
           })}
         </FilterNews>
-        <UpdateButton
-          buttonType="terciary"
-          className="btn btn-success"
-          onClick={updateFeeds}
-        >
-          Update
-        </UpdateButton>
+        <div>
+          <Icon src={Update} alt={Update} />
+          <UpdateButton
+            buttonType="terciary"
+            className="btn btn-success"
+            onClick={updateFeeds}
+          >
+            Update
+          </UpdateButton>
+        </div>
       </div>
       <FilteredNews news={news} />
     </>

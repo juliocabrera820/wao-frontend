@@ -6,7 +6,7 @@ const New = ({ title, category, published, url, description }) => {
     <Card className="card mb-3">
       <div className="row g-0">
         <div className="col-md-4">
-          <img src={Thumbnail} className="img-fluid" alt={Thumbnail} />
+          <img src={Thumbnail} alt={Thumbnail} />
         </div>
         <div className="col-md-8">
           <div className="card-body">
