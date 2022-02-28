@@ -9,9 +9,6 @@ LINK.BackHome = styled(Link)`
   &:link {
     color: black;
   }
-  &:hover {
-    color: #48b19b;
-  }
   width: 10rem;
 `;
 
