@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import { useQueryParam } from "../../shared/hooks/useQueryParam";
 import { newsService } from "../../services/newsService";
 import FilteredNews from "../../components/filteredNews";
-import { Icon } from "../../shared/styles";
-import Arrow from "../../assets/back.png";
-import { LINK } from "./styles";
+import BackHome from '../../components/backHome';
 
 const SearchResults = () => {
   const [news, setNews] = useState([]);
@@ -20,16 +18,7 @@ const SearchResults = () => {
 
   return (
     <div className="container mt-5 col-md-6">
-      <div>
-        <Icon src={Arrow} alt={Arrow} />
-        <LINK.BackHome
-          className="btn btn-success"
-          buttonType="terciary"
-          to="/home"
-        >
-          Back home
-        </LINK.BackHome>
-      </div>
+      <BackHome/>
       <FilteredNews news={news} />
     </div>
   );

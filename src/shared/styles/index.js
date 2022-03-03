@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 import { colors, hoverColors } from "../../shared/consts/colors";
 
 const baseButton = css`
@@ -25,4 +26,14 @@ const Icon = styled.img`
   padding: 10px;
 `;
 
-export { Button, baseButton, Icon };
+const LINK = {};
+
+LINK.Page = styled(Link)`
+  ${baseButton}
+  &:link {
+    color: black;
+  }
+  width: 10rem;
+`;
+
+export { Button, baseButton, Icon, LINK };
