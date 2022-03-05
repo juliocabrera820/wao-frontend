@@ -1,30 +1,16 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { useContext } from "react";
 import { feedsService } from "../../services/feedsService";
 import BackHome from "../../components/backHome";
-import { feedSchema } from "../../schemas/feedSchema";
 import { Button } from "../../shared/styles";
-import { Field } from "./styles";
+import { feedsContext } from "../../providers/feeds/feedsContext";
+import FeedForm from "../../components/feedForm";
 
 const Feeds = () => {
-  const [currentFeeds, setCurrentFeeds] = useState([]);
-  const { register, handleSubmit, errors } = useForm({
-    resolver: yupResolver(feedSchema),
-  });
-
-  const onSubmit = (data, e) => {
-    addUrl(data);
-    e.target.reset();
-  };
-
-  const addUrl = ({ url, category }) => {
-    setCurrentFeeds([...currentFeeds, { url, category }]);
-  };
+  const { currentFeeds } = useContext(feedsContext);
 
   const sendFeeds = async () => {
-    const { data } = await feedsService().create(currentFeeds)
-    console.log(data)
+    const { data } = await feedsService().create(currentFeeds);
+    console.log(data);
   };
 
   return (
@@ -32,37 +18,10 @@ const Feeds = () => {
       <div className="row">
         <div className="col-8">
           <BackHome />
-          <form onSubmit={handleSubmit(onSubmit)} className="mt-5">
-            <div className="col-md-10 py-2">
-              <Field
-                type="text"
-                placeholder="Type url"
-                ref={register}
-                name="url"
-                className={`form-control ${errors.url ? "is-invalid" : ""}`}
-              />
-              <div className="invalid-feedback">
-                <p>{errors.url && errors.url.message}</p>
-              </div>
-            </div>
-            <div className="col-md-10 py-2">
-              <Field
-                type="text"
-                placeholder="Type category"
-                ref={register}
-                name="category"
-                className={`form-control ${
-                  errors.category ? "is-invalid" : ""
-                }`}
-              />
-              <div className="invalid-feedback">
-                <p>{errors.category && errors.category.message}</p>
-              </div>
-            </div>
-            <Button buttonType="primary" className="btn btn-success mt-4">
-              Add feed
-            </Button>
-          </form>
+          <FeedForm />
+          <div className="mt-4">
+            <h3>New category</h3>
+          </div>
         </div>
         <div className="col-4 d-flex justify-content-between">
           <div>

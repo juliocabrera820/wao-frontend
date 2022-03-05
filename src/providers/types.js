@@ -1,0 +1,1 @@
+export const SET_CURRENT_FEED = "SET_CURRENT_FEED";
