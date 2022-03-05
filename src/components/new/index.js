@@ -26,7 +26,7 @@ const New = ({ title, category, published, url, description }) => {
                 <Date>{published}</Date>
               </p>
               <ReadMore
-                buttonType="terciary"
+                buttonType="tertiary"
                 className="btn btn-success"
                 href={url}
                 target="_blank"

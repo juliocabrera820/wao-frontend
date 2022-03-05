@@ -2,14 +2,13 @@ import axios from 'axios';
 import { BASE_BACKEND_URL } from '../shared/consts/envar';
 
 function feedsService() {
-  function create(urls, category) {
+  function create(feeds) {
     return axios({
       method: 'POST',
       baseURL: BASE_BACKEND_URL,
       url: 'feeds',
       data: {
-        urls,
-        category
+        feeds
       },
     });
   }

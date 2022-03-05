@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import FilteredNews from "../filteredNews";
 import { FilterNews, UpdateButton } from "./styles";
-import { Icon } from "../../shared/styles";
+import { Icon, LINK } from "../../shared/styles";
 import { Fields } from "../../shared/consts/fields";
 import { feedsService } from "../../services/feedsService";
 import { newsService } from "../../services/newsService";
@@ -9,12 +9,19 @@ import Update from "../../assets/update.png";
 
 const ManipulateNews = () => {
   const [news, setNews] = useState([]);
+  const [feedsCounter, setFeedsCounter] = useState(0);
 
   useEffect(() => {
     sortNews("published");
+    feedsNumber();
   }, []);
 
   const handleOption = (e) => sortNews(e.target.value);
+
+  const feedsNumber = async () => {
+    const { data } = await feedsService().all();
+    setFeedsCounter(data.length);
+  };
 
   const sortNews = async (field) => {
     const { data } = await newsService().all(field);
@@ -39,10 +46,20 @@ const ManipulateNews = () => {
             );
           })}
         </FilterNews>
+        <LINK.Page
+          className="btn btn-success position-relative"
+          buttonType="tertiary"
+          to="/feeds"
+        >
+          <span className="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger">
+            {feedsCounter}
+          </span>
+          Feeds
+        </LINK.Page>
         <div>
           <Icon src={Update} alt={Update} />
           <UpdateButton
-            buttonType="terciary"
+            buttonType="tertiary"
             className="btn btn-success"
             onClick={updateFeeds}
           >
