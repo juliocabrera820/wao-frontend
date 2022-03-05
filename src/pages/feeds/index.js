@@ -4,6 +4,7 @@ import BackHome from "../../components/backHome";
 import { Button } from "../../shared/styles";
 import { feedsContext } from "../../providers/feeds/feedsContext";
 import FeedForm from "../../components/feedForm";
+import CategoryForm from '../../components/categoryForm';
 
 const Feeds = () => {
   const { currentFeeds } = useContext(feedsContext);
@@ -19,9 +20,7 @@ const Feeds = () => {
         <div className="col-8">
           <BackHome />
           <FeedForm />
-          <div className="mt-4">
-            <h3>New category</h3>
-          </div>
+          <CategoryForm/>
         </div>
         <div className="col-4 d-flex justify-content-between">
           <div>

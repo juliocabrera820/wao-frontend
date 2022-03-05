@@ -3,8 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { feedSchema } from "../../schemas/feedSchema";
 import { feedsContext } from "../../providers/feeds/feedsContext";
-import { Field } from "./styles";
-import { Button } from "../../shared/styles";
+import { Button, FormField } from "../../shared/styles";
 
 const FeedForm = () => {
   const { register, handleSubmit, errors } = useForm({
@@ -25,7 +24,7 @@ const FeedForm = () => {
       <h4>New feed</h4>
       <form onSubmit={handleSubmit(onSubmit)} className="mt-2">
         <div className="col-md-10 py-2">
-          <Field
+          <FormField
             type="text"
             placeholder="Type url"
             ref={register}
@@ -37,7 +36,7 @@ const FeedForm = () => {
           </div>
         </div>
         <div className="col-md-10 py-2">
-          <Field
+          <FormField
             type="text"
             placeholder="Type category"
             ref={register}
