@@ -49,4 +49,9 @@ const FormField = styled.input`
     outline: none;
 `;
 
-export { Button, baseButton, Icon, LINK, FormField };
+const Select = styled.select`
+  background-color: ${colors.secondary};
+  width: 9rem;
+`;
+
+export { Button, baseButton, Icon, LINK, FormField, Select };
