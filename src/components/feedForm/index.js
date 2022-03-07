@@ -50,7 +50,7 @@ const FeedForm = () => {
         <div className="col-md-10 py-2">
           <Select
             className="form-select text-white"
-            name="name"
+            name="category"
             ref={register}
           >
             {categories.map(({ name }) => {
