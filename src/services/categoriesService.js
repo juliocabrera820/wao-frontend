@@ -1,21 +1,29 @@
-import axios from 'axios';
-import { BASE_BACKEND_URL } from '../shared/consts/envar';
+import axios from "axios";
+import { BASE_BACKEND_URL } from "../shared/consts/envar";
 
 function categoriesService() {
-  function create(urls, category) {
+  function all() {
     return axios({
-      method: 'POST',
+      method: "GET",
       baseURL: BASE_BACKEND_URL,
-      url: 'categories',
+      url: "categories",
+    });
+  }
+
+  function create(category) {
+    return axios({
+      method: "POST",
+      baseURL: BASE_BACKEND_URL,
+      url: "categories",
       data: {
-        urls,
-        category
+        category,
       },
     });
   }
 
   return {
-    create
+    create,
+    all,
   };
 }
 
