@@ -1,23 +1,21 @@
-import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { categorySchema } from "../../schemas/categorySchema";
-import { feedsContext } from "../../providers/feeds/feedsContext";
 import { Button, FormField } from "../../shared/styles";
+import { categoriesService } from "../../services/categoriesService";
 
 const FeedForm = () => {
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(categorySchema),
   });
-  const { setCurrentCategory } = useContext(feedsContext);
 
   const onSubmit = (data, e) => {
     addCategory(data);
     e.target.reset();
   };
 
-  const addCategory = ({ name }) => {
-    setCurrentCategory({ name });
+  const addCategory = async ({ name }) => {
+    await categoriesService().create(name);
   };
 
   return (
