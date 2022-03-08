@@ -19,11 +19,19 @@ const Category = styled.p`
 const Title = styled.h4`
   color: #000000;
   font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 
 const Description = styled.p`
+  margin: 1.5rem 0;
   color: #92a9bd;
   font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
 `;
 
 const ReadMore = styled.a`
