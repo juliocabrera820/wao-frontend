@@ -6,6 +6,7 @@ import { Fields } from "../../shared/consts/fields";
 import { feedsService } from "../../services/feedsService";
 import { newsService } from "../../services/newsService";
 import Update from "../../assets/update.png";
+import notification from "../notification";
 
 const ManipulateNews = () => {
   const [news, setNews] = useState([]);
@@ -30,8 +31,13 @@ const ManipulateNews = () => {
 
   const updateFeeds = async () => {
     await feedsService().updateAll();
-    const { data } = await newsService().all();
-    setNews(data);
+    try {
+      const { data } = await newsService().all();
+      notification("Category was successfully created", "success", 1);
+      setNews(data);
+    } catch (error) {
+      notification("There was an error", "error", 2);
+    }
   };
 
   return (
