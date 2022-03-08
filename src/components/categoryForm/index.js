@@ -3,6 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { categorySchema } from "../../schemas/categorySchema";
 import { Button, FormField } from "../../shared/styles";
 import { categoriesService } from "../../services/categoriesService";
+import notification from "../notification";
 
 const FeedForm = () => {
   const { register, handleSubmit, errors } = useForm({
@@ -15,7 +16,12 @@ const FeedForm = () => {
   };
 
   const addCategory = async ({ name }) => {
-    await categoriesService().create(name);
+    try {
+      await categoriesService().create(name);
+      notification("Category was successfully created", "success", 1);
+    } catch (error) {
+      notification("There was an error", "error", 2);
+    }
   };
 
   return (
