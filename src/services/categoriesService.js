@@ -6,7 +6,7 @@ function categoriesService() {
     return axios({
       method: "GET",
       baseURL: BASE_BACKEND_URL,
-      url: "categories",
+      url: "categories.php",
     });
   }
 
@@ -14,7 +14,7 @@ function categoriesService() {
     return axios({
       method: "POST",
       baseURL: BASE_BACKEND_URL,
-      url: "categories",
+      url: "addCategoria.php",
       data: {
         category,
       },

@@ -6,7 +6,7 @@ function feedsService() {
     return axios({
       method: 'POST',
       baseURL: BASE_BACKEND_URL,
-      url: 'feeds',
+      url: 'feeds.php',
       data: {
         feeds
       },
@@ -17,7 +17,7 @@ function feedsService() {
     return axios({
       method: 'GET',
       baseURL: BASE_BACKEND_URL,
-      url: 'feeds'
+      url: 'feeds.php'
     });
   }
 
@@ -25,7 +25,7 @@ function feedsService() {
     return axios({
       method: 'GET',
       baseURL: BASE_BACKEND_URL,
-      url: 'feeds/refresh'
+      url: 'refresh.php'
     });
   }
 
@@ -33,7 +33,7 @@ function feedsService() {
     return axios({
       method: 'GET',
       baseURL: BASE_BACKEND_URL,
-      url: `feeds/${id}/news`
+      url: `newsfeed.php/?id=${id}`
     });
   }
 

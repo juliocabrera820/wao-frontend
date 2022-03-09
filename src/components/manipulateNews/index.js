@@ -26,7 +26,7 @@ const ManipulateNews = () => {
 
   const sortNews = async (field) => {
     const { data } = await newsService().all(field);
-    setNews(data);
+    setNews(data.items);
   };
 
   const updateFeeds = async () => {
@@ -34,7 +34,7 @@ const ManipulateNews = () => {
     try {
       const { data } = await newsService().all();
       notification("Category was successfully created", "success", 1);
-      setNews(data);
+      setNews(data.items);
     } catch (error) {
       notification("There was an error", "error", 2);
     }

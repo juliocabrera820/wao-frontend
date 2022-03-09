@@ -19,7 +19,7 @@ const FeedForm = () => {
 
   const retrieveCategories = async () => {
     const { data } = await categoriesService().all();
-    setCategories(data);
+    setCategories(data.items);
   };
 
   const onSubmit = (data, e) => {
