@@ -12,12 +12,9 @@ function categoriesService() {
 
   function create(category) {
     return axios({
-      method: "POST",
+      method: "GET",
       baseURL: BASE_BACKEND_URL,
-      url: "addCategoria.php",
-      data: {
-        category,
-      },
+      url: `postCategory.php/?name=${category}`,
     });
   }
 
