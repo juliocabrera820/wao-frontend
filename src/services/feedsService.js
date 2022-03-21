@@ -2,7 +2,7 @@ import axios from 'axios';
 import { BASE_BACKEND_URL } from '../shared/consts/envar';
 
 function feedsService() {
-  
+  /*
   function create(feeds) {
     feeds = feeds[0];
     feeds = feeds["url"];
@@ -12,9 +12,7 @@ function feedsService() {
       url: `postFeed.php/?url=${feeds}&name=Prueba2`,
     });
   }
-  
-/*
-  function feedsService() {
+  */
     function create(feeds) {
       let feedj = JSON.stringify(feeds);
       return axios({
@@ -23,7 +21,7 @@ function feedsService() {
         url: `postFeed.php/?feeds=${feedj}`,
       });
     }
-*/
+
 
   function all() {
     return axios({
