@@ -9,7 +9,7 @@ const SearchResults = () => {
   const title = useQueryParam("title");
   const getResults = async (title) => {
     const { data } = await newsService().search(title);
-    setNews(data);
+    setNews(data.items);
   };
 
   useEffect(() => {

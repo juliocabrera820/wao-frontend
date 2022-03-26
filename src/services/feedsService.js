@@ -2,22 +2,32 @@ import axios from 'axios';
 import { BASE_BACKEND_URL } from '../shared/consts/envar';
 
 function feedsService() {
+  /*
   function create(feeds) {
+    feeds = feeds[0];
+    feeds = feeds["url"];
     return axios({
-      method: 'POST',
+      method: 'GET',
       baseURL: BASE_BACKEND_URL,
-      url: 'feeds',
-      data: {
-        feeds
-      },
+      url: `postFeed.php/?url=${feeds}&name=Prueba2`,
     });
   }
-  
+  */
+    function create(feeds) {
+      let feedj = JSON.stringify(feeds);
+      return axios({
+        method: 'GET',
+        baseURL: BASE_BACKEND_URL,
+        url: `postFeed.php/?feeds=${feedj}`,
+      });
+    }
+
+
   function all() {
     return axios({
       method: 'GET',
       baseURL: BASE_BACKEND_URL,
-      url: 'feeds'
+      url: 'feeds.php'
     });
   }
 
@@ -25,7 +35,7 @@ function feedsService() {
     return axios({
       method: 'GET',
       baseURL: BASE_BACKEND_URL,
-      url: 'feeds/refresh'
+      url: 'refresh.php'
     });
   }
 
@@ -33,7 +43,7 @@ function feedsService() {
     return axios({
       method: 'GET',
       baseURL: BASE_BACKEND_URL,
-      url: `feeds/${id}/news`
+      url: `newsfeed.php/?id=${id}`
     });
   }
 

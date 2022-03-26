@@ -6,7 +6,7 @@ function newsService() {
     return axios({
       method: 'GET',
       baseURL: BASE_BACKEND_URL,
-      url: `news?sort=${field}`
+      url: `indexsort.php/?sort=${field}`
     });
   }
 
@@ -14,7 +14,7 @@ function newsService() {
     return axios({
       method: 'GET',
       baseURL: BASE_BACKEND_URL,
-      url: `news/${id}`
+      url: `index.php/?id=${id}`
     });
   }
 
@@ -22,7 +22,7 @@ function newsService() {
     return axios({
       method: 'GET',
       baseURL: BASE_BACKEND_URL,
-      url: `news?title=${title}`
+      url: `indextitulo.php/?title=${title}`
     });
   }
 

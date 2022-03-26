@@ -6,18 +6,15 @@ function categoriesService() {
     return axios({
       method: "GET",
       baseURL: BASE_BACKEND_URL,
-      url: "categories",
+      url: "categories.php",
     });
   }
 
   function create(category) {
     return axios({
-      method: "POST",
+      method: "GET",
       baseURL: BASE_BACKEND_URL,
-      url: "categories",
-      data: {
-        category,
-      },
+      url: `postCategory.php/?name=${category}`,
     });
   }
 

@@ -12,7 +12,9 @@ const FeedForm = () => {
 
   const onSubmit = (data, e) => {
     addCategory(data);
+    console.log(data);
     e.target.reset();
+
   };
 
   const addCategory = async ({ name }) => {
