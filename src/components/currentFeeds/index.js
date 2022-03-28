@@ -16,8 +16,9 @@ const CurrentFeeds = () => {
       } catch (error) {
         notification("There was an error", "error", 2);
       }
+    } else {
+      notification("Feeds have not been added", "error", 3);
     }
-    notification("Feeds have not been added", "error", 3);
   };
 
   return (

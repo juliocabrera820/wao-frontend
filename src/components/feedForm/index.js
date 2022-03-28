@@ -27,8 +27,8 @@ const FeedForm = () => {
     e.target.reset();
   };
 
-  const addUrl = ({ url, name }) => {
-    setCurrentFeed({ url, name });
+  const addUrl = ({ url, category }) => {
+    setCurrentFeed({ url, category });
   };
 
   return (

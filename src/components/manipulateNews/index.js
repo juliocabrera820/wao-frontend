@@ -33,7 +33,7 @@ const ManipulateNews = () => {
     await feedsService().updateAll();
     try {
       const { data } = await newsService().all();
-      notification("Category was successfully created", "success", 1);
+      notification("Feeds were successfully updated", "success", 1);
       setNews(data);
     } catch (error) {
       notification("There was an error", "error", 2);
