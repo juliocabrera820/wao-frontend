@@ -10,19 +10,12 @@ import notification from "../notification";
 
 const ManipulateNews = () => {
   const [news, setNews] = useState([]);
-  const [feedsCounter, setFeedsCounter] = useState(0);
 
   useEffect(() => {
     sortNews("published");
-    feedsNumber();
   }, []);
 
   const handleOption = (e) => sortNews(e.target.value);
-
-  const feedsNumber = async () => {
-    const { data } = await feedsService().all();
-    setFeedsCounter(data.length);
-  };
 
   const sortNews = async (field) => {
     const { data } = await newsService().all(field);
@@ -58,16 +51,6 @@ const ManipulateNews = () => {
           to="/addFeeds"
         >
           Add feeds
-        </LINK.Page>
-        <LINK.Page
-          className="btn btn-success position-relative"
-          buttonType="tertiary"
-          to="/feeds"
-        >
-          <span className="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger">
-            {feedsCounter}
-          </span>
-          Feeds
         </LINK.Page>
         <div>
           <Icon src={Update} alt={Update} />

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../shared/consts/colors";
+import { baseLink } from '../../shared/styles';
+import { Link } from 'react-router-dom';
 
 const Field = styled.input`
   box-shadow: 4px 4px 3px #888888;
@@ -17,4 +19,13 @@ const Field = styled.input`
   }
 `;
 
-export { Field };
+const Feeds = {}
+
+Feeds.Page = styled(Link)`
+  ${baseLink};
+  height: 4rem;
+  width: 18rem;
+  padding-bottom: 6px;
+`;
+
+export { Field, Feeds };
