@@ -53,6 +53,13 @@ const ManipulateNews = () => {
           })}
         </FilterNews>
         <LINK.Page
+          className="btn btn-success position-relative text-white"
+          buttonType="primary"
+          to="/addFeeds"
+        >
+          Add feeds
+        </LINK.Page>
+        <LINK.Page
           className="btn btn-success position-relative"
           buttonType="tertiary"
           to="/feeds"

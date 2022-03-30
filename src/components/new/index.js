@@ -18,12 +18,12 @@ const New = ({ title, category, published, url, description }) => {
         </div>
         <div className="col-md-8">
           <div className="card-body">
-            <Category className="card-text">{category}</Category>
-            <Title className="card-title">{title}</Title>
-            <Description className="card-text">{description}</Description>
+            <Category className="card-text">{category || 'Default'}</Category>
+            <Title className="card-title">{title || 'Default'}</Title>
+            <Description className="card-text">{description || 'Default'}</Description>
             <Footer>
               <p className="card-text">
-                <Date>{published}</Date>
+                <Date>{published || 'Default'}</Date>
               </p>
               <ReadMore
                 buttonType="tertiary"

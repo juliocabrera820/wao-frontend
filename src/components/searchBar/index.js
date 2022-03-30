@@ -2,9 +2,9 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import { searchSchema } from "../../schemas/searchSchema";
-import { Field} from "./styles";
+import { Field } from "./styles";
 import { Button, Icon } from "../../shared/styles";
-import Search from '../../assets/search.png';
+import Search from "../../assets/search.png";
 
 const SearchBar = () => {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const SearchBar = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="d-flex justify-content-between"
+      className="d-flex justify-content-between container col-md-9 mt-3"
     >
       <div className="col-md-10">
         <Icon src={Search} alt={Search} />

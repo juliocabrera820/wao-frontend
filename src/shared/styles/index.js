@@ -28,11 +28,15 @@ const Icon = styled.img`
 
 const LINK = {};
 
-LINK.Page = styled(Link)`
+const baseLink = css`
   ${baseButton}
   &:link {
     color: black;
   }
+`;
+
+LINK.Page = styled(Link)`
+  ${baseLink}
   width: 10rem;
 `;
 
@@ -54,4 +58,4 @@ const Select = styled.select`
   width: 9rem;
 `;
 
-export { Button, baseButton, Icon, LINK, FormField, Select };
+export { Button, baseButton, Icon, LINK, FormField, Select, baseLink };
