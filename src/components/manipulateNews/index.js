@@ -10,19 +10,12 @@ import notification from "../notification";
 
 const ManipulateNews = () => {
   const [news, setNews] = useState([]);
-  const [feedsCounter, setFeedsCounter] = useState(0);
 
   useEffect(() => {
     sortNews("published");
-    feedsNumber();
   }, []);
 
   const handleOption = (e) => sortNews(e.target.value);
-
-  const feedsNumber = async () => {
-    const { data } = await feedsService().all();
-    setFeedsCounter(data.length);
-  };
 
   const sortNews = async (field) => {
     const { data } = await newsService().all(field);
@@ -33,7 +26,7 @@ const ManipulateNews = () => {
     await feedsService().updateAll();
     try {
       const { data } = await newsService().all();
-      notification("Category was successfully created", "success", 1);
+      notification("Feeds were successfully updated", "success", 1);
       setNews(data);
     } catch (error) {
       notification("There was an error", "error", 2);
@@ -53,14 +46,11 @@ const ManipulateNews = () => {
           })}
         </FilterNews>
         <LINK.Page
-          className="btn btn-success position-relative"
-          buttonType="tertiary"
-          to="/feeds"
+          className="btn btn-success position-relative text-white"
+          buttonType="primary"
+          to="/addFeeds"
         >
-          <span className="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger">
-            {feedsCounter}
-          </span>
-          Feeds
+          Add feeds
         </LINK.Page>
         <div>
           <Icon src={Update} alt={Update} />

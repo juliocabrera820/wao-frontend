@@ -1,9 +1,10 @@
 import New from "../new";
+import Default from '../../assets/thumbnail.png';
 
 const FilteredNews = ({ news }) => {
   return (
     <div className="mt-5">
-      {news.map(({ title, category, published, url, description }) => {
+      {news.map(({ title, category, published, url, description, image=Default }) => {
         return (
           <New
             title={title}
@@ -12,6 +13,7 @@ const FilteredNews = ({ news }) => {
             url={url}
             description={description}
             key={title}
+            image={image}
           />
         );
       })}
